@@ -134,7 +134,7 @@ public class GooglePlaces implements GooglePlacesInterface {
             }
 
             // the place "types"
-            List<String> types = new ArrayList<>();
+            List<String> types = new ArrayList<String>();
             JSONArray jsonTypes = result.optJSONArray(ARRAY_TYPES);
             if (jsonTypes != null) {
                 for (int a = 0; a < jsonTypes.length(); a++) {
@@ -313,7 +313,7 @@ public class GooglePlaces implements GooglePlacesInterface {
             String uri = String.format("%sphoto?photoreference=%s&key=%s", API_URL, photo.getReference(),
                     apiKey);
 
-            List<Param> params = new ArrayList<>(Arrays.asList(extraParams));
+            List<Param> params = new ArrayList<Param>(Arrays.asList(extraParams));
             if (maxHeight != -1) params.add(Param.name("maxheight").value(maxHeight));
             if (maxWidth != -1) params.add(Param.name("maxwidth").value(maxWidth));
             extraParams = params.toArray(new Param[params.size()]);
@@ -339,12 +339,12 @@ public class GooglePlaces implements GooglePlacesInterface {
     @Override
     public List<Prediction> getPlacePredictions(String input, int offset, int lat, int lng, int radius,
                                                 Param... extraParams) {
-        List<Param> params = new ArrayList<>();
+        List<Param> params = new ArrayList<Param>();
         if (offset != -1)
             params.add(Param.name("offset").value(offset));
         if (lat != -1 && lng != -1)
             params.add(Param.name("location").value(lat + "," + lng));
-        params.addAll(new ArrayList<>(Arrays.asList(extraParams)));
+        params.addAll(new ArrayList<Param>(Arrays.asList(extraParams)));
 
         return getPredictions(input, METHOD_AUTOCOMPLETE, params.toArray(new Param[params.size()]));
     }
@@ -362,12 +362,12 @@ public class GooglePlaces implements GooglePlacesInterface {
     @Override
     public List<Prediction> getQueryPredictions(String input, int offset, int lat, int lng, int radius,
                                                 Param... extraParams) {
-        List<Param> params = new ArrayList<>();
+        List<Param> params = new ArrayList<Param>();
         if (offset != -1)
             params.add(Param.name("offset").value(offset));
         if (lat == -1 && lng == -1)
             params.add(Param.name("location").value(lat + "," + lng));
-        params.addAll(new ArrayList<>(Arrays.asList(extraParams)));
+        params.addAll(new ArrayList<Param>(Arrays.asList(extraParams)));
 
         return getPredictions(input, METHOD_QUERY_AUTOCOMPLETE, params.toArray(new Param[params.size()]));
     }
@@ -387,7 +387,7 @@ public class GooglePlaces implements GooglePlacesInterface {
         limit = Math.min(limit, MAXIMUM_RESULTS); // max of 60 results possible
         int pages = (int) Math.ceil(limit / (double) MAXIMUM_PAGE_RESULTS);
 
-        List<Place> places = new ArrayList<>();
+        List<Place> places = new ArrayList<Place>();
         // new request for each page
         for (int i = 0; i < pages; i++) {
             debug("Page: " + (i + 1));

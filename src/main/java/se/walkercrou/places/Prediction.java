@@ -14,8 +14,8 @@ import static se.walkercrou.places.GooglePlaces.*;
  * Represents a autocomplete prediction based on a query.
  */
 public class Prediction {
-    private final List<DescriptionTerm> terms = new ArrayList<>();
-    private final List<String> types = new ArrayList<>();
+    private final List<DescriptionTerm> terms = new ArrayList<DescriptionTerm>();
+    private final List<String> types = new ArrayList<String>();
     private GooglePlaces client;
     private String placeId;
     private String description;
@@ -35,7 +35,7 @@ public class Prediction {
         JSONObject json = new JSONObject(rawJson);
         checkStatus(json.getString(STRING_STATUS), json.optString(STRING_ERROR_MESSAGE));
 
-        List<Prediction> predictions = new ArrayList<>();
+        List<Prediction> predictions = new ArrayList<Prediction>();
         JSONArray jsonPredictions = json.getJSONArray(ARRAY_PREDICTIONS);
         for (int i = 0; i < jsonPredictions.length(); i++) {
             JSONObject jsonPrediction = jsonPredictions.getJSONObject(i);
@@ -43,7 +43,7 @@ public class Prediction {
             String description = jsonPrediction.getString(STRING_DESCRIPTION);
 
             JSONArray jsonTerms = jsonPrediction.getJSONArray(ARRAY_TERMS);
-            List<DescriptionTerm> terms = new ArrayList<>();
+            List<DescriptionTerm> terms = new ArrayList<DescriptionTerm>();
             for (int a = 0; a < jsonTerms.length(); a++) {
                 JSONObject jsonTerm = jsonTerms.getJSONObject(a);
                 String value = jsonTerm.getString(STRING_VALUE);
@@ -52,7 +52,7 @@ public class Prediction {
             }
 
             JSONArray jsonTypes = jsonPrediction.optJSONArray(ARRAY_TYPES);
-            List<String> types = new ArrayList<>();
+            List<String> types = new ArrayList<String>();
             if (jsonTypes != null) {
                 for (int b = 0; b < jsonTypes.length(); b++) {
                     types.add(jsonTypes.getString(b));

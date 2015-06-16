@@ -8,7 +8,7 @@ import java.util.List;
  * Represents a place's hours of operation.
  */
 public class Hours {
-    private final List<Period> periods = new ArrayList<>();
+    private final List<Period> periods = new ArrayList<Period>();
     private boolean alwaysOpened;
 
     protected Hours() {

@@ -60,7 +60,7 @@
 
         <mavenPlugins.groupId>org.apache.maven.plugins</mavenPlugins.groupId>
         <compiler-plugin.version>3.2</compiler-plugin.version>
-        <compiler.version>1.7</compiler.version>
+        <compiler.version>1.6</compiler.version>
         <gpg-plugin.version>1.6</gpg-plugin.version>
         <source-plugin.version>2.4</source-plugin.version>
         <javadoc-plugin.version>2.10.1</javadoc-plugin.version>

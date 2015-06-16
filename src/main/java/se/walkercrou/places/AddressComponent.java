@@ -10,7 +10,7 @@ import java.util.List;
  * and "NY" (the US state).
  */
 public class AddressComponent {
-    private final List<String> types = new ArrayList<>();
+    private final List<String> types = new ArrayList<String>();
     private String longName, shortName;
 
     protected AddressComponent() {

@@ -18,11 +18,11 @@ import static se.walkercrou.places.GooglePlaces.*;
  * Represents a place returned by Google Places API_
  */
 public class Place {
-    private final List<String> types = new ArrayList<>();
-    private final List<Photo> photos = new ArrayList<>();
-    private final List<Review> reviews = new ArrayList<>();
-    private final List<AddressComponent> addressComponents = new ArrayList<>();
-    private final List<AltId> altIds = new ArrayList<>();
+    private final List<String> types = new ArrayList<String>();
+    private final List<Photo> photos = new ArrayList<Photo>();
+    private final List<Review> reviews = new ArrayList<Review>();
+    private final List<AddressComponent> addressComponents = new ArrayList<AddressComponent>();
+    private final List<AltId> altIds = new ArrayList<AltId>();
     private GooglePlaces client;
     private String placeId;
     private Scope scope;
@@ -124,7 +124,7 @@ public class Place {
 
         // photos
         JSONArray jsonPhotos = result.optJSONArray(ARRAY_PHOTOS);
-        List<Photo> photos = new ArrayList<>();
+        List<Photo> photos = new ArrayList<Photo>();
         if (jsonPhotos != null) {
             for (int i = 0; i < jsonPhotos.length(); i++) {
                 JSONObject jsonPhoto = jsonPhotos.getJSONObject(i);
@@ -137,7 +137,7 @@ public class Place {
 
         // address components
         JSONArray addrComponents = result.optJSONArray(ARRAY_ADDRESS_COMPONENTS);
-        List<AddressComponent> addressComponents = new ArrayList<>();
+        List<AddressComponent> addressComponents = new ArrayList<AddressComponent>();
         if (addrComponents != null) {
             for (int i = 0; i < addrComponents.length(); i++) {
                 JSONObject ac = addrComponents.getJSONObject(i);
@@ -163,7 +163,7 @@ public class Place {
 
         // types
         JSONArray jsonTypes = result.optJSONArray(ARRAY_TYPES);
-        List<String> types = new ArrayList<>();
+        List<String> types = new ArrayList<String>();
         if (jsonTypes != null) {
             for (int i = 0; i < jsonTypes.length(); i++) {
                 types.add(jsonTypes.getString(i));
@@ -172,7 +172,7 @@ public class Place {
 
         // reviews
         JSONArray jsonReviews = result.optJSONArray(ARRAY_REVIEWS);
-        List<Review> reviews = new ArrayList<>();
+        List<Review> reviews = new ArrayList<Review>();
         if (jsonReviews != null) {
             for (int i = 0; i < jsonReviews.length(); i++) {
                 JSONObject jsonReview = jsonReviews.getJSONObject(i);
@@ -186,7 +186,7 @@ public class Place {
 
                 // aspects of the review
                 JSONArray jsonAspects = jsonReview.optJSONArray(ARRAY_ASPECTS);
-                List<Review.Aspect> aspects = new ArrayList<>();
+                List<Review.Aspect> aspects = new ArrayList<Review.Aspect>();
                 if (jsonAspects != null) {
                     for (int a = 0; a < jsonAspects.length(); a++) {
                         JSONObject jsonAspect = jsonAspects.getJSONObject(a);
@@ -203,7 +203,7 @@ public class Place {
 
         // alt-ids
         JSONArray jsonAltIds = result.optJSONArray(ARRAY_ALT_IDS);
-        List<AltId> altIds = new ArrayList<>();
+        List<AltId> altIds = new ArrayList<AltId>();
         if (jsonAltIds != null) {
             for (int i = 0; i < jsonAltIds.length(); i++) {
                 JSONObject jsonAltId = jsonAltIds.getJSONObject(i);

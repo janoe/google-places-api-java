@@ -9,7 +9,7 @@ import java.util.List;
  * Represents a user submitted review.
  */
 public class Review {
-    private final List<Aspect> aspects = new ArrayList<>();
+    private final List<Aspect> aspects = new ArrayList<Aspect>();
     private String author, authorUrl, lang, text;
     private int rating;
     private long time;

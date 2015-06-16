@@ -10,7 +10,7 @@ import static se.walkercrou.places.Statuses.*;
  * Represents an exception or error thrown by Google Places API
  */
 public class GooglePlacesException extends RuntimeException {
-    private static final Map<String, Class<?>> statusClassMap = new HashMap<>();
+    private static final Map<String, Class<?>> statusClassMap = new HashMap<String, Class<?>>();
 
     static {
         statusClassMap.put(STATUS_OK, null);
